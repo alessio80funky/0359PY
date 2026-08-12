@@ -1,5 +1,7 @@
 #変数
 
+#letを使わない
+
 message = "Python メッセージ"
 age = 20
 
@@ -19,7 +21,7 @@ print(f"{message}と{age}")
 
 #False,class,is,none,continue,try,True,def,else,elif,for,if,whileなど
 
-False = 12
+#False = 12
 
 print(False)
 
