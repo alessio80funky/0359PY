@@ -12,7 +12,7 @@
         #print("Bot: その質問分かれへん")
 
 from google import genai
-<<<<<<< HEAD
+
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -29,7 +29,7 @@ try:
 
 except Exception as error:
     print("エラー：",error)
-=======
+
 
 
 client = genai.Client()
@@ -40,4 +40,4 @@ response = client.interactions.create(
 )
 
 print(response.output_text)
->>>>>>> 32f2d69dd24eda36b20614b4db7797f0d24893e7
+

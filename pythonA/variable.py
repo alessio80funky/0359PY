@@ -25,11 +25,11 @@ print(f"{message}と{age}")
 
 print(False)
 
-<<<<<<< HEAD
+
   #File "C:\Users\xxxx\OneDrive\デスクトップ\python-3\variable.py", line OO
-=======
+
   #File "C:\Users\kazuo\OneDrive\デスクトップ\python-3\variable.py", line 22
->>>>>>> 32f2d69dd24eda36b20614b4db7797f0d24893e7
+
     #False = 12
    # ^^^^^
 #SyntaxError: cannot assign to False
