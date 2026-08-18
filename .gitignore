@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 pythonA/bot/terminal/.env
 <<<<<<< HEAD
 
@@ -5,3 +6,9 @@ pythonA/bot/terminal/.env
 =======
 pythonA/bot/terminal/.env
 >>>>>>> 32f2d69dd24eda36b20614b4db7797f0d24893e7
+=======
+.env
+
+pythonA/bot/terminal/.env
+
+>>>>>>> dcb23a6 (8/18 11:15)
