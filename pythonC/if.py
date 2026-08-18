@@ -24,4 +24,15 @@ print(a or b)#JS => || =>　どれか
 
 print(not b)#JS => ! 否定演算子 
 
-#
+#if/elif/else
+
+score = 78
+
+if score >= 90:
+    print("とてもいいです")
+elif score >= 70:
+    print("いい感じ")
+elif score >= 50:
+    print("よくもなくわるくもなく")
+else:
+    print("残念ながらダメでした")
