@@ -5,17 +5,35 @@
         #print("Bot: こんにちは、元気かい？")
     #elif shitsumon == "Pythonは？どう思いますか？":
         #print("Bot: Pythonはおもろい言語やと思うで")
-    #elif shitsumon == "終了":
+    #eimport oslif shitsumon == "終了":
         #print("終了します")
         #break
     #else:
         #print("Bot: その質問分かれへん")
 
+import os
+
 from google import genai
 
 from dotenv import load_dotenv
 
+import discord
+
+
+
+class MyClient(discord.Client):
+    async def on_ready(self):
+        print(f"ログインしました！{self.user}")
+    async def on_message(self, message):
+        print(f'Message from {message.author}: {message.content}')
+
+intents = discord.Intents.default()
+intents.message_content = True
+discord_client = MyClient(intents=intents)
+
+
 load_dotenv()
+TOKEN = os.getenv("DISCORD_TOKEN")
 
 client = genai.Client()
 
@@ -41,3 +59,4 @@ except Exception as error:
 
 #print(response.output_text)
 
+discord_client.run(TOKEN)
