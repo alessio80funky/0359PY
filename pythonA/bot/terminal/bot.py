@@ -11,6 +11,7 @@
     #else:
         #print("Bot: その質問分かれへん")
 
+import asyncio
 import os
 
 from google import genai
@@ -19,34 +20,38 @@ from dotenv import load_dotenv
 
 import discord
 
+load_dotenv()
+TOKEN = os.getenv("DISCORD_TOKEN")
+gemini_client = genai.Client()
 
 
 class MyClient(discord.Client):
     async def on_ready(self):
         print(f"ログインしました！{self.user}")
+
     async def on_message(self, message):
-        print(f'Message from {message.author}: {message.content}')
+        if message.author.bot or not message.content.strip():
+            return
+
+        print(f"Message from {message.author}: {message.content}")
+
+        try:
+            response = await asyncio.to_thread(
+                gemini_client.interactions.create,
+                model="gemini-3.6-flash",
+                input=message.content,
+            )
+            output = response.output_text or "返信を生成できませんでした。"
+
+            for start in range(0, len(output), 2000):
+                await message.channel.send(output[start:start + 2000])
+        except Exception as error:
+            print("エラー：", error)
+            await message.channel.send("返信の生成中にエラーが発生しました。")
 
 intents = discord.Intents.default()
 intents.message_content = True
 discord_client = MyClient(intents=intents)
-
-
-load_dotenv()
-TOKEN = os.getenv("DISCORD_TOKEN")
-
-client = genai.Client()
-
-question = input("あなた：")
-try:
-    response = client.interactions.create(
-    model="gemini-3.6-flash",
-    input=question
-)
-    print("Bot:",response.output_text)
-
-except Exception as error:
-    print("エラー：",error)
 
 
 
