@@ -32,12 +32,12 @@ except Exception as error:
 
 
 
-client = genai.Client()
+#client = genai.Client()
 
-response = client.interactions.create(
-    model="gemini-3.6-flash",
-    input="こんにちは"
-)
+#response = client.interactions.create(
+    #model="gemini-3.6-flash",
+    #input="こんにちは"
+#)
 
-print(response.output_text)
+#print(response.output_text)
 
