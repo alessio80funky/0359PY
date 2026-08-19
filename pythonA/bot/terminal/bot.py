@@ -13,11 +13,8 @@
 
 import asyncio
 import os
-
 from google import genai
-
 from dotenv import load_dotenv
-
 import discord
 
 load_dotenv()
@@ -28,7 +25,7 @@ gemini_client = genai.Client()
 class MyClient(discord.Client):
     async def on_ready(self):
         print(f"ログインしました！{self.user}")
-
+    
     async def on_message(self, message):
         if message.author.bot or not message.content.strip():
             return
